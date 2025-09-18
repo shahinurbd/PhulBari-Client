@@ -86,7 +86,7 @@ const AddFlower = () => {
   };
 
   return (
-    <div className="max-w-4xl xl:mx-auto md:mx-5 lg:mx-15 mt-5 p-6 bg-white shadow-lg rounded-lg">
+    <div className="max-w-4xl xl:mx-auto md:mx-5 lg:mx-15 mt-5 md:mt-15 p-6 bg-white shadow-lg rounded-lg">
       <h2 className="text-2xl font-semibold mb-4">Add New Flower</h2>
       {!productId ? (
         <form onSubmit={handleSubmit(handleProductAdd)} className="space-y-4">
@@ -196,7 +196,7 @@ const AddFlower = () => {
           </button>
         </form>
       ) : (
-        <div>
+        <div className='mt-5 md:mt-15'>
           <h3 className="text-lg font-medium mb-2">Upload Product Images</h3>
           <input
             type="file"
