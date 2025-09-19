@@ -45,6 +45,8 @@ export default function Checkout() {
             phone_number: data.phone_number,
             address: data.address
             };
+
+            console.log(profilePayload);
             await updateUserProfile(profilePayload);
            
               // place order
@@ -193,11 +195,11 @@ export default function Checkout() {
           <div className="mb-6">
             <label className="block text-xs text-gray-500 mb-2">Order Notes <span className="text-xs text-gray-400">(optional)</span></label>
             <div className="relative">
-              <FaStickyNote className="absolute left-3 top-3 text-pink-500 text-sm" 
-              {...register("address.note")}
+              <FaStickyNote className="absolute left-3 top-3 text-pink-500 text-sm"
               />
               <textarea
                 rows="5"
+                {...register("address.note")}
                 className="w-full bg-gray-50 border border-gray-200 rounded-sm pl-10 pr-4 py-3 placeholder-gray-400 focus:ring-2 focus:ring-pink-100 focus:border-pink-300 outline-none text-sm resize-none"
                 placeholder="Notes about your order, e.g. special notes for delivery."
               />
