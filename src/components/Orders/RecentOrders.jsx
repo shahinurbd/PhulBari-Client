@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import authApiClient from '../../services/auth-api-client';
 
-const OrderTable = () => {
+const RecentOrders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const allOrders = [...orders].reverse();
+  // get last 5 orders
+  const recentOrders = orders.slice(-5).reverse();
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -47,7 +48,7 @@ const OrderTable = () => {
                 </tr>
               )}
 
-              {!loading && allOrders.map((order) => (
+              {!loading && recentOrders.map((order) => (
                 <tr key={order.id} className="hover:bg-gray-50 text-gray-700">
                   <td className="py-3 px-4 border-b">{order.id}</td>
                   <td className="py-3 px-4 border-b">{order.created_at}</td>
@@ -74,4 +75,4 @@ const OrderTable = () => {
   );
 };
 
-export default OrderTable;
+export default RecentOrders;

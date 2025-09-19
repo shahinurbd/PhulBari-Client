@@ -1,10 +1,10 @@
 import { FiPackage, FiShoppingCart, FiStar, FiUsers } from "react-icons/fi";
 import { BiCategory } from "react-icons/bi";
 import StatCard from "./StatCard";
-import OrderTable from "../Orders/OrderTable";
 import { useEffect, useState } from "react";
 import apiClient from "../../services/api-client";
 import authApiClient from "../../services/auth-api-client";
+import RecentOrders from "../Orders/RecentOrders";
 
 const AdminDashboard = () => {
     const [TotalProducts, setTotalProducts] = useState([]);
@@ -57,7 +57,7 @@ const AdminDashboard = () => {
             
             <div className="mt-10 bg-gray-50 shadow-sm p-2 rounded-sm">
                 <p className="mx-5 font-semibold">Recent Orders</p>
-                <OrderTable />
+                <RecentOrders />
                 
                 </div>
         </div>
