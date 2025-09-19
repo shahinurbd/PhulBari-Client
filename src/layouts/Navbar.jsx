@@ -8,6 +8,7 @@ import useAuthContext from "../hooks/useAuthContext";
 import apiClient from "../services/api-client";
 import defaultImage from "../assets/default_image.jpg"
 import { RxCross2 } from "react-icons/rx";
+import logo from "../assets/logo/logo-1.png"
 
   
 const Navbar = () => {
@@ -65,7 +66,7 @@ const Navbar = () => {
       <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50 font-[Poppins]">
       <div className="flex justify-between items-center md:px-8 md:py-5 px-4 py-4">
         <Link to="/" className="text-2xl font-bold text-pink-600">
-          PhulBari
+          <img className="w-12" src={logo} alt="" />
         </Link>
 
         <button
