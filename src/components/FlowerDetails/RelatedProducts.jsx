@@ -13,7 +13,7 @@ import { Link } from "react-router";
 
 
 
-const RelatedProducts = ({products}) => {
+const RelatedProducts = ({products, loading}) => {
 
    
     const [selectedProduct, setSelectedProduct] = useState(null);
@@ -23,6 +23,13 @@ const RelatedProducts = ({products}) => {
         related products
         <div className="w-20 h-1 bg-pink-500 mx-auto mt-2 rounded-sm"></div>
       </h2>
+
+      {/* Snippper */}
+            {loading && (
+                <div className='flex justify-center items-center'>
+                    <span className="loading loading-spinner text-secondary loading-xl"></span>
+                </div>
+            )}
 
       <Swiper
         modules={[Navigation]}
@@ -122,7 +129,7 @@ const RelatedProducts = ({products}) => {
           </SwiperSlide>
         ))}
 
-        {products.length === 0 && (
+        {!loading && products.length === 0 && (
           <p className="text-center">No Products Found</p>
         )}
       </Swiper>

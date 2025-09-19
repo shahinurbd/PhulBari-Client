@@ -6,6 +6,7 @@ import '@fontsource/poppins/500.css';
 import apiClient from "../../services/api-client";
 import defaultImage from "../../assets/default_image.jpg"
 import FlowerDialog from "../FlowerDetails/FlowerDialog";
+import { Link } from "react-router";
 
 const NewArrivalItems = () => {
   const [products, setProducts] = useState([]);
@@ -72,12 +73,13 @@ const NewArrivalItems = () => {
 
               {/* Image container - use its own "group" so hover affects only this area */}
               <div className="group relative md:max-h-75 sm:max-h-60 max-h-35 flex items-center justify-center bg-gray-50">
+                <Link to={`/shop/${product.id}/`}>
                 <img
                   src={product.images.length > 0 ? product.images[0].image : defaultImage}
                   alt={product.name}
                   className="max-h-40 md:max-h-65 object-contain transform hover:scale-110 transition duration-400 "
                 />
-
+                </Link>
                 {/* Action bar — hidden by default, slides up on hover of the image area */}
                 <div className="absolute left-0 right-0 bottom-0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                   <div className="flex items-center justify-between bg-neutral-500 bg-opacity-95">
@@ -108,7 +110,7 @@ const NewArrivalItems = () => {
                 </div>
               </div>
             </div>
-
+            <Link to={`/shop/${product.id}/`}>
             {/* Product meta (name / price) - separate from image area */}
             <div className="lg:text-lg md:text-md sm:text-sm text-xs mt-6 text-center">
               <h3 className=" text-gray-800 tracking-wide">
@@ -123,6 +125,7 @@ const NewArrivalItems = () => {
                   )}
               </p>
             </div>
+            </Link>
           </div>
         ))}
       </div>

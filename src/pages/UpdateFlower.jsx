@@ -28,8 +28,13 @@ const UpdateFlower = () => {
         },[flowerId]);
 
     useEffect(() => {
-            Object.keys(flower).forEach((key) => setValue(key, flower[key]));
-        }, [flower, setValue]);
+    if (flower) {
+      Object.keys(flower).forEach((key) => setValue(key, flower[key]));
+      if (flower.category_id) {
+        setValue("category_id", flower.category_id);
+      }
+    }
+  }, [flower, setValue]);
 
     //fetch categories
     useEffect(() => {
@@ -52,7 +57,7 @@ const UpdateFlower = () => {
             tag: data.tag,
             isNew: data.isNew,
             stock: data.stock,
-            category: data.category
+            category_id: parseInt(data.category_id),
             };
              await authApiClient.put(`/flowers/${flowerId}/`, Payload);
              setSuccessMsg("Product Updated Successfully!");
@@ -193,7 +198,7 @@ const UpdateFlower = () => {
         <div>
           <label className="block text-sm text-gray-500 mb-2">Category</label>
           <select
-            {...register("category", { required: true })}
+            {...register("category_id",)}
             className="select select-bordered w-full bg-gray-100 placeholder-gray-400 px-4 rounded-sm focus:outline-none focus:ring-2 focus:ring-[#f5b6c2] border border-gray-300"
           >
             <option value="">Select a category</option>

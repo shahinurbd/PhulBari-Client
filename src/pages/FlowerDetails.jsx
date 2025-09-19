@@ -39,7 +39,7 @@ const FlowerDetails = () => {
             </div>
           </div>
          ): (
-        <div className='mt-30'>
+        <div className='md:mt-30 mt-22'>
             
             
             {loading ? (
@@ -47,7 +47,7 @@ const FlowerDetails = () => {
                     <span className="loading loading-dots text-secondary loading-xl"></span>
                 </div>
             ) : (
-                <div className='grid md:grid-cols-2 grid-cols-1 xl:mx-45 lg:mx-20 md:mx-8 md:my-14 m-5 gap-10 xl:gap-0'>
+                <div className='grid lg:grid-cols-2 grid-cols-1 xl:mx-45 lg:mx-10 md:mx-35 md:my-14 m-5 gap-10 xl:gap-0'>
                 
                     
                 <FlowerImages images={flower?.images}/>
@@ -57,13 +57,13 @@ const FlowerDetails = () => {
                 </div>
                 
             )}
-            <div className='mt-30'>
+            <div className='mt-30 md:mx-6 mx-2'>
                 
             <InfoSection />
             </div>
 
-            <div>
-                <RelatedProducts products={allProducts} />
+            <div className='md:mx-6 mx-1'>
+                <RelatedProducts products={allProducts} loading={loading} />
             </div>
             
             

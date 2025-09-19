@@ -24,7 +24,7 @@ const FlowerImages = ({images}) => {
                 key={index}
                 src={img.image}
                 alt={`Flower ${index + 1}`}
-                className={`w-20 h-20 object-cover border rounded cursor-pointer ${
+                className={`max-w-20 max-h-20 object-cover border rounded cursor-pointer ${
                   selectedImage === img.image ? "border-pink-500" : "border-gray-200"
                 }`}
                 onClick={() => setSelectedImage(img.image)}
@@ -37,7 +37,7 @@ const FlowerImages = ({images}) => {
             <img
               src={selectedImage}
               alt="Selected Flower"
-              className="sm:w-100 sm:h-92 object-cover rounded-lg aspect-square"
+              className="sm:max-w-100 sm:max-h-92 object-cover rounded-lg aspect-square"
             />
           </div>
         </div>
