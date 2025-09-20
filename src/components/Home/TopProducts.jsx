@@ -66,13 +66,13 @@ const TopProducts = () => {
                           {/* BADGES (stacked) - placed at top-left */}
                           <div className="absolute top-3 left-3 z-20 flex flex-col gap-2">
                             {product.discount && (
-                              <div className="bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded">
+                              <div className="bg-green-500 text-white text-xs font-semibold sm:px-3 px-2 sm:py-1 rounded">
                                 {product.discount}%
                               </div>
                             )}
             
                             {product.tag && (
-                              <div className="bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded">
+                              <div className="bg-pink-500 text-white text-xs font-semibold sm:px-3 px-2 sm:py-1 rounded">
                                 {product.tag}
                               </div>
                             )}
@@ -81,7 +81,7 @@ const TopProducts = () => {
                           {/* NEW badge on top-right (if present) */}
                           {product.isNew && (
                             <div className="absolute top-3 right-3 z-20">
-                              <div className="bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded">
+                              <div className="bg-blue-500 text-white text-xs font-semibold sm:px-3 px-2 sm:py-1 rounded">
                                 NEW
                               </div>
                             </div>
@@ -134,8 +134,9 @@ const TopProducts = () => {
                           </h3>
                           <p className="text-pink-700 font-semibold mt-2 mb-5">
                             ${product.price}
+                            
                             {product.old_price && (
-                              <span className="line-through text-gray-400 ml-3 text-sm">
+                              <span className="line-through text-gray-400 ml-3">
                                 ${product.old_price}
                               </span>
                             )}

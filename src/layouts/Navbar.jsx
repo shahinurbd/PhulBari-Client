@@ -157,6 +157,8 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* search bar result section */}
+
         <div className="">
           {loading && (
                 <div className='flex justify-center items-center py-20'>
@@ -164,10 +166,13 @@ const Navbar = () => {
                 </div>
             )}
           {!loading && searchQuery && (
-          <div className="max-w-xl mx-auto overflow-y-scroll max-h-screen">
+          <div className="max-w-xl mx-auto overflow-y-scroll max-h-100">
+            <h2 className="text-sm text-gray-500 py-5 mx-5">
+            Showing {flowers.length} results
+            </h2>
             {flowers.map((flower) => (
               <Link to={`/shop/${flower.id}`} onClick={() => setShowSearch(!showSearch)} >
-                <div className="flex justify-items-center items-center gap-4 bg-gray-100 rounded-sm my-2 p-2 max-w-2xl hover:shadow-sm hover:bg-gray-300" key={flower.id}>
+                <div className="flex justify-items-center items-center gap-4 bg-gray-100 rounded-sm my-2 p-2 max-w-2xl hover:shadow-sm hover:bg-gray-300 mx-2" key={flower.id}>
               {flower?.images[0] ? (
                 <img className="w-10 h-10" src={flower?.images[0]?.image} alt="" />
               ) : (

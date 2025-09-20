@@ -29,7 +29,7 @@ const NewArrivalItems = () => {
     fetchProducts();
     },[]);
     return (
-      <div className="py-12 px-6 max-w-7xl mx-auto font-[Poppins]">
+      <div className="py-12 px-3 max-w-7xl mx-auto font-[Poppins]">
       <h2 className="md:text-4xl text-3xl font-bold text-center mb-10 tracking-tight">
         new arrival items
         <div className="w-20 h-1 bg-pink-500 mx-auto mt-2 rounded-sm"></div>
@@ -47,29 +47,30 @@ const NewArrivalItems = () => {
           <div key={product.id} className="bg-white shadow-md ">
             {/* IMAGE WRAPPER - action bar appears only over this area */}
             <div className="relative overflow-hidden">
-              {/* BADGES (stacked) - placed at top-left */}
-              <div className="absolute top-3 left-3 z-20 flex flex-col gap-2">
-                {product.discount && (
-                  <div className="bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded">
-                    {product.discount}%
-                  </div>
-                )}
-
-                {product.tag && (
-                  <div className="bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded">
-                    {product.tag}
-                  </div>
-                )}
-              </div>
-
-              {/* NEW badge on top-right (if present) */}
-              {product.isNew && (
-                <div className="absolute top-3 right-3 z-20">
-                  <div className="bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded">
-                    NEW
-                  </div>
-                </div>
-              )}
+                    {/* BADGES (stacked) - placed at top-left */}
+                          <div className="absolute top-3 left-3 z-20 flex flex-col gap-2">
+                            {product.discount && (
+                              <div className="bg-green-500 text-white text-xs font-semibold sm:px-3 px-2 sm:py-1 rounded">
+                                {product.discount}%
+                              </div>
+                            )}
+            
+                            {product.tag && (
+                              <div className="bg-pink-500 text-white text-xs font-semibold sm:px-3 px-2 sm:py-1 rounded">
+                                {product.tag}
+                              </div>
+                            )}
+                          </div>
+            
+                          {/* NEW badge on top-right (if present) */}
+                          {product.isNew && (
+                            <div className="absolute top-3 right-3 z-20">
+                              <div className="bg-blue-500 text-white text-xs font-semibold sm:px-3 px-2 sm:py-1 rounded">
+                                NEW
+                              </div>
+                            </div>
+                          )}  
+        
 
               {/* Image container - use its own "group" so hover affects only this area */}
               <div className="group relative md:max-h-75 sm:max-h-60 max-h-35 flex items-center justify-center bg-gray-50">

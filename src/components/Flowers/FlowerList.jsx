@@ -20,12 +20,13 @@ const FlowerList = ({ products, isLoading }) => {
                     <span className="loading loading-spinner text-secondary loading-xl"></span>
                 </div>
             )}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 font-[Poppins]">
+            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 mx-3 font-[Poppins]">
                     {products.map((product) => (
                       
                       <div key={product.id} className="bg-white shadow-md ">
                         {/* IMAGE WRAPPER - action bar appears only over this area */}
                         <div className="relative overflow-hidden">
+
                           {/* BADGES (stacked) - placed at top-left */}
                           <div className="absolute top-3 left-3 z-20 flex flex-col gap-2">
                             {product.discount && (
@@ -51,7 +52,7 @@ const FlowerList = ({ products, isLoading }) => {
                           )}
                           
                           {/* Image container - use its own "group" so hover affects only this area */}
-                          <div className="group relative md:max-h-75 sm:max-h-60 max-h-35 flex items-center justify-center bg-gray-50">
+                          <div className="group relative md:max-h-75 sm:max-h-60 max-h-35 flex items-center justify-center bg-gray-50 ">
                             <Link to={`/shop/${product.id}/`}>
                             <img
                               src={product.images.length > 0 ? product.images[0].image : defaultImage}

@@ -19,7 +19,7 @@ const ShopPage = () => {
   const [sortOrder, setSortOrder] = useState("");
   const {categories} = useFetchCategories();
 
-  const {products, loading, totalPages} = useFetchProducts(currentPage,priceRange,selectedCategory,searchQuery,sortOrder);
+  const {products, loading, totalPages, TotalProducts} = useFetchProducts(currentPage,priceRange,selectedCategory,searchQuery,sortOrder);
   return (
     <div className='flex lg:mx-2 xl:mx-10 md:mx-8 font-[Poppins]'>
        {/* Sidebar (Desktop) */}
@@ -64,11 +64,11 @@ const ShopPage = () => {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 p-6">
+      <main className="flex-1">
         {/* Top bar */}
-        <div className="sm:flex justify-between items-center mb-6">
-          <h2 className="text-sm text-gray-500 py-5">
-            Showing {products.length} of {products.length} results
+        <div className="sm:flex justify-between items-center mb-6 mt-5">
+          <h2 className="text-sm text-gray-500 py-5 px-3">
+            Showing {products.length} of {TotalProducts} results
           </h2>
           <div className="flex items-center gap-2 p-2">
             <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)} className="border border-gray-300 text-gray-700 px-4 py-2">
